@@ -12,5 +12,6 @@ namespace Tournament.Core.Entities
         public string Title { get; set; } = string.Empty;
         public DateTime Time { get; set; }
         public int ToutnamentId { get; set; }
+        public Tournament tournament { get; set; } = new Tournament();
     }
 }
