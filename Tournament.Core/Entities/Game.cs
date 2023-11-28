@@ -8,7 +8,7 @@ namespace Tournament.Core.Entities
 {
     public class Game
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Title { get; set; } = string.Empty;
         public DateTime Time { get; set; }
         public int ToutnamentId { get; set; }

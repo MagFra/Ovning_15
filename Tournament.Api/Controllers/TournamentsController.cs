@@ -30,7 +30,7 @@ namespace Tournament.Api.Controllers
 
         // GET: api/Tournaments/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Core.Entities.Tournament>> GetTournament(int id)
+        public async Task<ActionResult<Core.Entities.Tournament>> GetTournament(Guid id)
         {
             var tournament = await _context.Tournament.FindAsync(id);
 
@@ -45,7 +45,7 @@ namespace Tournament.Api.Controllers
         // PUT: api/Tournaments/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTournament(int id, Core.Entities.Tournament tournament)
+        public async Task<IActionResult> PutTournament(Guid id, Core.Entities.Tournament tournament)
         {
             if (id != tournament.Id)
             {
@@ -86,7 +86,7 @@ namespace Tournament.Api.Controllers
 
         // DELETE: api/Tournaments/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTournament(int id)
+        public async Task<IActionResult> DeleteTournament(Guid id)
         {
             var tournament = await _context.Tournament.FindAsync(id);
             if (tournament == null)
@@ -100,7 +100,7 @@ namespace Tournament.Api.Controllers
             return NoContent();
         }
 
-        private bool TournamentExists(int id)
+        private bool TournamentExists(Guid id)
         {
             return _context.Tournament.Any(e => e.Id == id);
         }
