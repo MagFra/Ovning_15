@@ -13,6 +13,6 @@ namespace Tournament.Core.Entities
         [MaxLength(30)]
         public string Title { get; set; } = string.Empty;
         public DateTime StartDate { get; set; }
-        public ICollection<Game>? Games { get; set; } = default;
+        public ICollection<Game> Games { get; set; } = new List<Game>();
     }
 }

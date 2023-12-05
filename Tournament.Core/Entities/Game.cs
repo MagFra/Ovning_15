@@ -14,6 +14,6 @@ namespace Tournament.Core.Entities
         public string Title { get; set; } = string.Empty;
         public DateTime Time { get; set; }
         public Guid TournamentId { get; set; }
-        public Tournament? Tournament { get; set; } = default;
+        public Tournament Tournament { get; set; } = default!;
     }
 }
