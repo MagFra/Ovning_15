@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Tournament.Core.Repositories;
+using Tournament.Core.Entities;
 using Tournament.Data.Data;
 
 namespace Tournament.Data.Repositories
@@ -30,7 +32,7 @@ namespace Tournament.Data.Repositories
         //############################################################################
 
 
-        public Task<bool> AnyAsync(int id)
+        public Task<bool> AnyAsync(Guid id)
         {
             throw new NotImplementedException();
         }
@@ -39,18 +41,18 @@ namespace Tournament.Data.Repositories
         //############################################################################
 
 
-        public Task<IEnumerable<Core.Entities.Tournament>> GetAllAsync()
+        public async Task<IEnumerable<Core.Entities.Tournament>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await db.Tournament.ToListAsync();
         }
 
 
         //############################################################################
 
 
-        public Task<Core.Entities.Tournament> GetAsync(int id)
+        public async Task<Core.Entities.Tournament?> GetAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await db.Tournament.FirstOrDefaultAsync(t => t.Id == id);
         }
 
 
